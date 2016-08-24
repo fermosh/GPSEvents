@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GPSEvents;
 using GPSEvents.Controllers;
 
 namespace GPSEvents.Tests.Controllers
