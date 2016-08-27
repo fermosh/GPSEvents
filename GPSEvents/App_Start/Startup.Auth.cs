@@ -42,10 +42,10 @@ namespace GPSEvents
             // Enable the application to use bearer tokens to authenticate users
             app.UseOAuthBearerTokens(OAuthOptions);
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            //Uncomment the following lines to enable logging in with third party login providers
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "b4b349c9-cfb2-405e-b4c3-2e2b6f94f49e",
+                clientSecret: "76AhR3yRc0HyJrPOE8Cv5Vd");
 
             //app.UseTwitterAuthentication(
             //    consumerKey: "",
