@@ -5,13 +5,15 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html data-ng-app="GPSEventsApp">
 <head>
     <meta charset="UTF-8">
-    <title>Director | Dashboard</title>
+    <title>Control de consumo</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
     <!-- bootstrap 3.0.2 -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -47,8 +49,13 @@
 
     <style type="text/css">
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="~/angularApp/GPSEventsApp.js"></script>
+    <script src="~/angularApp/dashboard/controllers/dashboard.js"></script>
+    <script src="~/angularApp/units/controllers/units.js"></script>
 </head>
-<body class="skin-black">
+<body class="skin-black" data-ng-controller="MainController as main">
     <!-- header logo: style can be found in header.less -->
     <header class="header">
         <a href="index.html" class="logo">
@@ -73,19 +80,16 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Cuenta</li>
-
                             <li>
                                 <a href="#">
                                     <i class="fa fa-clock-o fa-fw pull-right"></i>
                                     <span class="badge badge-success pull-right">10</span> Cambios
                                 </a>
                                 <a href="#">
-                                    <i class="fa fa-question fa-fw pull-right"></i> <span class="badge pull-right">11</span> Ayuda
+                                    <i class="fa fa-question fa-fw pull-right"></i> Ayuda
                                 </a>
                             </li>
-
                             <li class="divider"></li>
-
                             <li>
                                 <a href="#">
                                     <i class="fa fa-user fa-fw pull-right"></i>
@@ -96,9 +100,7 @@
                                     Ajustes
                                 </a>
                             </li>
-
                             <li class="divider"></li>
-
                             <li>
                                 <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Salir</a>
                             </li>
@@ -134,37 +136,37 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class="active">
-                        <a href="/Dashboard/#">
+                    <li ng-class="{active: $index==selectedIndex}">
+                        <a href="#/">
                             <i class="fa fa-dashboard"></i> <span>Tablero</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#/Units">
+                        <a href="#Units">
                             <i class="fa fa-truck"></i> <span>Unidades</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#/Vouchers">
+                        <a href="#Vouchers">
                             <i class="fa fa-credit-card"></i> <span>Vales</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#/Shops">
+                        <a href="#Shops">
                             <i class="fa fa-wrench"></i> <span>Talleres</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#/Stations">
+                        <a href="#Stations">
                             <i class="fa fa-tachometer"></i> <span>Gasolineras</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#/Settings">
+                        <a href="#Settings">
                             <i class="fa fa-gears"></i> <span>Configuracion</span>
                         </a>
                     </li>
@@ -175,274 +177,9 @@
         </aside>
 
         <aside class="right-side">
-
             <!-- Main content -->
             <section class="content">
-
-                <div class="row" style="margin-bottom:5px;">
-
-
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-red"><i class="fa fa-exclamation-triangle"></i></span>
-                            <div class="sm-st-info">
-                                <span>5</span>
-                                Tapones de diesel abiertos
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-violet"><i class="fa fa-tachometer"></i></span>
-                            <div class="sm-st-info">
-                                <span>105</span>
-                                L/h consumo promedio
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-dollar"></i></span>
-                            <div class="sm-st-info">
-                                <span>20,530</span>
-                                En vales este mes
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-green"><i class="fa fa-credit-card"></i></span>
-                            <div class="sm-st-info">
-                                <span>14</span>
-                                Vales por cargar
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Main row -->
-                <div class="row">
-
-                    <div class="col-md-8">
-                        <!--earning graph start-->
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Consumo de diesel
-                            </header>
-                            <div class="panel-body">
-                                <canvas id="linechart" width="600" height="330"></canvas>
-                            </div>
-                        </section>
-                        <!--earning graph end-->
-
-                    </div>
-                    <div class="col-lg-4">
-
-                        <!--chat start-->
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Notificaciones
-                            </header>
-                            <div class="panel-body" id="noti-box">
-
-                                <div class="alert alert-success">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Vale usado.</strong> Vale V0003231 usado y validado exitosamente <a href="#">ver</a>.
-                                </div>
-                                <div class="alert alert-block alert-danger">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Vale discrepante</strong> Vale V0002538 usado con diferencias contra la factura <a href="#">ver</a>.
-                                </div>
-                                <div class="alert alert-warning">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Tapon abierto</strong> Unidad U-5461 con tapon abierto <a href="#">ver</a>.
-                                </div>
-                                <div class="alert alert-success">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Vale usado.</strong> Vale V0003229 usado y validado exitosamente <a href="#">ver</a>.
-                                </div>
-                                <div class="alert alert-success">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Vale usado.</strong> Vale V0003218 usado y validado exitosamente <a href="#">ver</a>.
-                                </div>
-                                <div class="alert alert-warning">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Tapon abierto</strong> Unidad U-5455 con tapon abierto <a href="#">ver</a>.
-                                </div>
-
-
-
-                            </div>
-                        </section>
-
-
-
-                    </div>
-
-
-                </div>
-                <div class="row">
-
-                    <div class="col-md-5">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Unidades
-                            </header>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th># econ</th>
-                                            <th>Tapon</th>
-                                            <th>Ultimo vale</th>
-                                            <th>Ubicacion</th>
-                                            <th>Nivel de diesel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>U-5461</td>
-                                            <td><span class="label label-danger">Abierto</span></td>
-                                            <td>V0003218</td>
-                                            <td><a href="https://www.openstreetmap.org/#map=16/20.6194/-103.2395">Ver.</a></td>
-                                            <td>
-                                                <a href="#">
-                                                    <div class="progress progress-striped xs">
-                                                        <div class="progress-bar progress-bar-danger" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">20% Complete</span>
-                                                        </div>
-                                                    </div><small class="pull-right">20%</small>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>U-5459</td>
-                                            <td><span class="label label-success">Cerrado</span></td>
-                                            <td>V0003222</td>
-                                            <td><a href="https://www.openstreetmap.org/#map=16/20.6174/-103.2195">Ver.</a></td>
-                                            <td>
-                                                <a href="#">
-                                                    <div class="progress progress-striped xs">
-                                                        <div class="progress-bar progress-bar-success" style="width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">90% Complete</span>
-                                                        </div>
-                                                    </div><small class="pull-right">90%</small>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>U-5455</td>
-                                            <td><span class="label label-danger">Abierto</span></td>
-                                            <td>V0003211</td>
-                                            <td><a href="https://www.openstreetmap.org/#map=16/20.6194/-103.2395">Ver.</a></td>
-                                            <td>
-                                                <a href="#">
-                                                    <div class="progress progress-striped xs">
-                                                        <div class="progress-bar progress-bar-success" style="width: 100%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div><small class="pull-right">100%</small>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>U-5440</td>
-                                            <td><span class="label label-success">Cerrado</span></td>
-                                            <td>V0003002</td>
-                                            <td><a href="https://www.openstreetmap.org/#map=16/20.6194/-103.2395">Ver.</a></td>
-                                            <td>
-                                                <a href="#">
-                                                    <div class="progress progress-striped xs">
-                                                        <div class="progress-bar progress-bar-warning" style="width: 35%" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">35% Complete</span>
-                                                        </div>
-                                                    </div><small class="pull-right">35%</small>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </section>
-
-
-                    </div><!--end col-6 -->
-                    <div class="col-md-7">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Vales
-                            </header>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th># de vale</th>
-                                            <th>Fecha de creacion</th>
-                                            <th>Estado</th>
-                                            <th>Solicitado</th>
-                                            <th>Cargado</th>
-                                            <th>Factura</th>
-                                            <th>Monto</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>V0003222</td>
-                                            <td>2016/08/24</td>
-                                            <td><span class="label label-info">Nuevo</span></td>
-                                            <td>120</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>V0003218</td>
-                                            <td>2016/08/20</td>
-                                            <td><span class="label label-success">Cargado</span></td>
-                                            <td>120</td>
-                                            <td>120</td>
-                                            <td>21351</td>
-                                            <td>$1,657.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>V0002538</td>
-                                            <td>2016/08/19</td>
-                                            <td><span class="label label-danger">Discrepante</span></td>
-                                            <td>120</td>
-                                            <td>100</td>
-                                            <td>21287</td>
-                                            <td>$1,657.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>V0002438</td>
-                                            <td>2016/08/05</td>
-                                            <td><span class="label label-success">Cargado</span></td>
-                                            <td>130</td>
-                                            <td>130</td>
-                                            <td>21107</td>
-                                            <td>$1,787.70</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </section>
-
-
-                    </div><!--end col-6 -->
-
-                </div>
+                <div ng-view></div>
             </section><!-- /.content -->
             <div class="footer-main">
                 Dashboard design by: Director&copy, 2014
@@ -505,43 +242,6 @@
                 checkboxClass: 'icheckbox_flat-grey',
                 radioClass: 'iradio_flat-grey'
             });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-                "use strict";
-                //BAR CHART
-                var data = {
-                    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [115, 122, 111, 120, 125, 127, 124]
-                        },
-                        {
-                            label: "My Second dataset",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [110, 124, 122, 118, 116, 110, 105]
-                        }
-                    ]
-                };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
-                responsive : true,
-                maintainAspectRatio: false,
-            });
-
-            });
-            // Chart.defaults.global.responsive = true;
     </script>
 </body>
 </html>

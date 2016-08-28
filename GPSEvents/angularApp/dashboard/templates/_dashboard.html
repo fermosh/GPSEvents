@@ -1,0 +1,287 @@
+﻿
+<div class="row" style="margin-bottom:5px;">
+
+    <div class="col-md-3">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-red"><i class="fa fa-exclamation-triangle"></i></span>
+            <div class="sm-st-info">
+                <span>5</span>
+                Tapones de diesel abiertos
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-violet"><i class="fa fa-tachometer"></i></span>
+            <div class="sm-st-info">
+                <span>105</span>
+                L/h consumo promedio
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-blue"><i class="fa fa-dollar"></i></span>
+            <div class="sm-st-info">
+                <span>20,530</span>
+                En vales este mes
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="sm-st clearfix">
+            <span class="sm-st-icon st-green"><i class="fa fa-credit-card"></i></span>
+            <div class="sm-st-info">
+                <span>14</span>
+                Vales por cargar
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main row -->
+<div class="row">
+    <div class="col-md-8">
+        <!--earning graph start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Consumo de diesel
+            </header>
+            <div class="panel-body">
+                <canvas id="linechart" width="600" height="330"></canvas>
+            </div>
+        </section>
+        <!--earning graph end-->
+    </div>
+    <div class="col-lg-4">
+        <!--chat start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Notificaciones
+            </header>
+            <div class="panel-body" id="noti-box">
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale usado.</strong> Vale V0003231 usado y validado exitosamente <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-block alert-danger">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale discrepante</strong> Vale V0002538 usado con diferencias contra la factura <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-warning">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Tapon abierto</strong> Unidad U-5461 con tapon abierto <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale usado.</strong> Vale V0003229 usado y validado exitosamente <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale usado.</strong> Vale V0003218 usado y validado exitosamente <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-warning">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Tapon abierto</strong> Unidad U-5455 con tapon abierto <a href="#">ver</a>.
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <section class="panel">
+            <header class="panel-heading">
+                Unidades
+            </header>
+            <div class="panel-body table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th># econ</th>
+                            <th>Tapon</th>
+                            <th>Ultimo vale</th>
+                            <th>Ubicacion</th>
+                            <th>Nivel de diesel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>U-5461</td>
+                            <td><span class="label label-danger">Abierto</span></td>
+                            <td>V0003218</td>
+                            <td><a href="https://www.openstreetmap.org/#map=16/20.6194/-103.2395"><i class="fa fa-globe" aria-hidden="true"></i></a></td>
+                            <td>
+                                <a href="#">
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div><small class="pull-right">20%</small>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>U-5459</td>
+                            <td><span class="label label-success">Cerrado</span></td>
+                            <td>V0003222</td>
+                            <td><a href="https://www.openstreetmap.org/#map=16/20.6174/-103.2195"><i class="fa fa-globe" aria-hidden="true"></i></a></td>
+                            <td>
+                                <a href="#">
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-success" style="width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">90% Complete</span>
+                                        </div>
+                                    </div><small class="pull-right">90%</small>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>U-5455</td>
+                            <td><span class="label label-danger">Abierto</span></td>
+                            <td>V0003211</td>
+                            <td><a href="https://www.openstreetmap.org/#map=16/20.6194/-103.2395"><i class="fa fa-globe" aria-hidden="true"></i></a></td>
+                            <td>
+                                <a href="#">
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-success" style="width: 100%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">100% Complete</span>
+                                        </div>
+                                    </div><small class="pull-right">100%</small>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>U-5440</td>
+                            <td><span class="label label-success">Cerrado</span></td>
+                            <td>V0003002</td>
+                            <td><a href="https://www.openstreetmap.org/#map=16/20.6194/-103.2395"><i class="fa fa-globe" aria-hidden="true"></i></a></td>
+                            <td>
+                                <a href="#">
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-warning" style="width: 35%" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">35% Complete</span>
+                                        </div>
+                                    </div><small class="pull-right">35%</small>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div><!--end col-6 -->
+    <div class="col-md-7">
+        <section class="panel">
+            <header class="panel-heading">
+                Vales
+            </header>
+            <div class="panel-body table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th># de vale</th>
+                            <th>Fecha de creacion</th>
+                            <th>Estado</th>
+                            <th>Solicitado</th>
+                            <th>Cargado</th>
+                            <th>Factura</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>V0003222</td>
+                            <td>2016/08/24</td>
+                            <td><span class="label label-info">Nuevo</span></td>
+                            <td>120</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>V0003218</td>
+                            <td>2016/08/20</td>
+                            <td><span class="label label-success">Cargado</span></td>
+                            <td>120</td>
+                            <td>120</td>
+                            <td>21351</td>
+                            <td>$1,657.00</td>
+                        </tr>
+                        <tr>
+                            <td>V0002538</td>
+                            <td>2016/08/19</td>
+                            <td><span class="label label-danger">Discrepante</span></td>
+                            <td>120</td>
+                            <td>100</td>
+                            <td>21287</td>
+                            <td>$1,657.00</td>
+                        </tr>
+                        <tr>
+                            <td>V0002438</td>
+                            <td>2016/08/05</td>
+                            <td><span class="label label-success">Cargado</span></td>
+                            <td>130</td>
+                            <td>130</td>
+                            <td>21107</td>
+                            <td>$1,787.70</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div><!--end col-6 -->
+</div>
+<script type="text/javascript">
+    $(function() {
+                "use strict";
+                //BAR CHART
+                var data = {
+                    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            fillColor: "rgba(220,220,220,0.2)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [115, 122, 111, 120, 125, 127, 124]
+                        },
+                        {
+                            label: "My Second dataset",
+                            fillColor: "rgba(151,187,205,0.2)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [110, 124, 122, 118, 116, 110, 105]
+                        }
+                    ]
+                };
+            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
+                responsive : true,
+                maintainAspectRatio: false,
+            });
+
+            });
+            // Chart.defaults.global.responsive = true;
+</script>
