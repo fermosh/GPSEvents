@@ -56,6 +56,8 @@
     <script src="~/angularApp/units/controllers/units.js"></script>
     <script src="~/angularApp/vouchers/controllers/vouchers.js"></script>
     <script src="~/angularApp/shops/controllers/shops.js"></script>
+    <script src="~/angularApp/stations/controllers/stations.js"></script>
+    <script src="~/angularApp/settings/controllers/settings.js"></script>
 </head>
 <body class="skin-black" data-ng-controller="MainController as main">
     <!-- header logo: style can be found in header.less -->
@@ -129,7 +131,7 @@
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Buscar..." />
+                        <input type="text" name="q" ng-model="main.menuSearch" class="form-control" placeholder="Buscar..." />
                         <span class="input-group-btn">
                             <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                         </span>
@@ -138,41 +140,11 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li ng-class="{active: $index==selectedIndex}">
-                        <a href="#/">
-                            <i class="fa fa-dashboard"></i> <span>Tablero</span>
+                    <li ng-class="{active: $index==main.selectedPageIndex}" ng-repeat="page in main.pages  | filter: main.menuSearch track by $index">
+                        <a ng-href="{{page.url}}" ng-click="main.selectedPageIndex = $index">
+                            <i class="fa fa-{{page.icon}}"></i> <span>{{page.name}}</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#Units">
-                            <i class="fa fa-truck"></i> <span>Unidades</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#Vouchers">
-                            <i class="fa fa-credit-card"></i> <span>Vales</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#Shops">
-                            <i class="fa fa-wrench"></i> <span>Talleres</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#Stations">
-                            <i class="fa fa-tachometer"></i> <span>Gasolineras</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#Settings">
-                            <i class="fa fa-gears"></i> <span>Configuracion</span>
-                        </a>
-                    </li>
-
                 </ul>
             </section>
             <!-- /.sidebar -->

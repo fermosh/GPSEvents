@@ -1,11 +1,45 @@
 ﻿var GPSEventsApp = angular.module("GPSEventsApp", ['ngRoute']);
 
-GPSEventsApp.controller('MainController',
-    function ($scope, $route, $routeParams, $location) {
+var MainController = GPSEventsApp.controller('MainController',
+    function($scope, $route, $routeParams, $location) {
         var ctl = this;
         ctl.$route = $route;
         ctl.$location = $location;
         ctl.$routeParams = $routeParams;
+        ctl.selectedPageIndex = 0;
+        ctl.menuSearch = "";
+        ctl.pages = [
+            {
+                url: "#/",
+                name: "Tablero",
+                icon: "dashboard"
+            },
+            {
+                url: "#Units",
+                name: "Unidades",
+                icon: "truck"
+            },
+            {
+                url: "#Vouchers",
+                name: "Vales",
+                icon: "credit-card"
+            },
+            {
+                url: "#Shops",
+                name: "Talleres",
+                icon: "wrench"
+            },
+            {
+                url: "#Stations",
+                name: "Gasolineras",
+                icon: "tachometer"
+            },
+            {
+                url: "#Settings",
+                name: "Configuracion",
+                icon: "gears"
+            }
+        ];
     });
 
 
@@ -26,6 +60,16 @@ GPSEventsApp.config(['$routeProvider',
               templateUrl: '/angularApp/vouchers/templates/_vouchers.html',
               controller: 'VouchersCtl',
               controllerAs: 'vouchers'
+          })
+          .when('/Stations', {
+              templateUrl: '/angularApp/stations/templates/_stations.html',
+              controller: 'StationsCtl',
+              controllerAs: 'stations'
+          })
+          .when('/Settings', {
+              templateUrl: '/angularApp/settings/templates/_settings.html',
+              controller: 'SettingsCtl',
+              controllerAs: 'settings'
           })
           .when('/Shops', {
               templateUrl: '/angularApp/shops/templates/_shops.html',

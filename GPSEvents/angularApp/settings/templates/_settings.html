@@ -1,65 +1,30 @@
 ﻿
 
-<div class="row" style="margin-bottom: 5px;" data-ng-controller="ShopsCtl as shops">
+<div class="row" style="margin-bottom: 5px;" data-ng-controller="SettingsCtl as settings">
     <div class="row">
-        <div class="col-lg-12">
-            <section class="panel" data-ng-show="shops.showForm">
+        <div class="col-lg-9">
+            <section class="panel">
                 <header class="panel-heading">
                     Agregar Taller
                 </header>
                 <div class="panel-body">
-                    <form name="newShopForm" role="form" ng-submit="shops.AddShop()">
+                    <form name="settingsForm" role="form" ng-submit="settings.SaveSettings()">
                         <div class="form-group row">
                             <div>
-                                <label for="newShopName">Nombre:</label>
-                                <input required data-ng-model="shops.newShop.name" class="form-control" id="newShopName" type="text" placeholder="Nombre para el taller">
+                                <label for="GPSMargin">Margen de tapas:</label>
+                                <input required ng-model="settings.theSettings.GPSMargin" class="form-control" id="GPSMargin" type="number" min="0" max="1000" placeholder="Margen">
+                                <p class="help-block">Distancia maxima (en metros) permisible entre el GPS de una unidad con la tapa abierta y la ubicacion de un taller o gasolinera.</p>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div>
-                                <label for="newShopAddress">Direccion:</label>
-                                <input required ng-blur="shops.UpdateNewFormMap()" data-ng-model="shops.newShop.address" class="form-control" id="newShopAddress" type="text" placeholder="Direccion del taller">
-                            </div><br/>
-                            <iframe class="box" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{shops.newShop.mapUrl}}" style="border: 1px solid black"></iframe>
+                                <label for="siGasEndPoint">Direccion de WebService de SiGas:</label>
+                                <input required ng-model="settings.theSettings.siGasEndPoint" class="form-control" id="siGasEndPoint" type="url" placeholder="Direccion del webservice">
+                            </div>
                         </div>
-                        <button class="btn btn-info" ng-disabled="newShopForm.$invalid" type="submit">Guardar</button>
-                        <button class="btn" data-ng-click="shops.CancelNewShop()" type="reset">Cancelar</button>
+                        <button class="btn btn-info" ng-disabled="settingsForm.$invalid" type="submit">Guardar</button>
+                        <button class="btn" data-ng-click="settings.Cancel()" type="button">Cancelar</button>
                     </form>
-                </div>
-            </section>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9">
-            <section class="panel">
-                <header class="panel-heading">
-                    Talleres
-                    <button class="btn btn-xs pull-right" data-ng-click="shops.ShowNewShopForm()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Agregar</button>
-                </header>
-                <div class="panel-body table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Ubicacion</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="shop in shops.shopCollection track by $index">
-                                <td>{{shop.name}}</td>
-                                <td>
-                                    {{shop.address}}
-                                    <iframe class="box" height="100" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{shop.mapUrl}}" style="border: 1px solid black"></iframe><br/>
-                                    <small><a target="_blank" href="{{shop.mapUrl}}">Ver ubicacion</a></small>
-                                </td>
-                                <td>
-                                    <i class="fa fa-pencil" aria-hidden="true" title="Editar"></i>
-                                    <i class="fa fa-trash-o" aria-hidden="true" title="Borrar"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </section>
         </div>

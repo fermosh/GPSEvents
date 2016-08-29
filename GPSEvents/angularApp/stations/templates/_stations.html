@@ -1,29 +1,29 @@
 ﻿
 
-<div class="row" style="margin-bottom: 5px;" data-ng-controller="ShopsCtl as shops">
+<div class="row" style="margin-bottom: 5px;" data-ng-controller="StationsCtl as stations">
     <div class="row">
         <div class="col-lg-12">
-            <section class="panel" data-ng-show="shops.showForm">
+            <section class="panel" data-ng-show="stations.showForm">
                 <header class="panel-heading">
-                    Agregar Taller
+                    Agregar Gasolinera
                 </header>
                 <div class="panel-body">
-                    <form name="newShopForm" role="form" ng-submit="shops.AddShop()">
+                    <form name="newStationForm" role="form" ng-submit="stations.AddStation()">
                         <div class="form-group row">
                             <div>
-                                <label for="newShopName">Nombre:</label>
-                                <input required data-ng-model="shops.newShop.name" class="form-control" id="newShopName" type="text" placeholder="Nombre para el taller">
+                                <label for="newStationName">Nombre:</label>
+                                <input required data-ng-model="stations.newStation.name" class="form-control" id="newStationName" type="text" placeholder="Nombre para la gasolinera">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div>
-                                <label for="newShopAddress">Direccion:</label>
-                                <input required ng-blur="shops.UpdateNewFormMap()" data-ng-model="shops.newShop.address" class="form-control" id="newShopAddress" type="text" placeholder="Direccion del taller">
+                                <label for="newStationAddress">Direccion:</label>
+                                <input required ng-blur="stations.UpdateNewFormMap()" data-ng-model="stations.newStation.address" class="form-control" id="newStationAddress" type="text" placeholder="Direccion de la gasolinera">
                             </div><br/>
-                            <iframe class="box" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{shops.newShop.mapUrl}}" style="border: 1px solid black"></iframe>
+                            <iframe class="box" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{stations.newStation.mapUrl}}" style="border: 1px solid black"></iframe>
                         </div>
-                        <button class="btn btn-info" ng-disabled="newShopForm.$invalid" type="submit">Guardar</button>
-                        <button class="btn" data-ng-click="shops.CancelNewShop()" type="reset">Cancelar</button>
+                        <button class="btn btn-info" ng-disabled="newStationForm.$invalid" type="submit">Guardar</button>
+                        <button class="btn" data-ng-click="stations.CancelNewStation()" type="reset">Cancelar</button>
                     </form>
                 </div>
             </section>
@@ -33,8 +33,8 @@
         <div class="col-md-9">
             <section class="panel">
                 <header class="panel-heading">
-                    Talleres
-                    <button class="btn btn-xs pull-right" data-ng-click="shops.ShowNewShopForm()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Agregar</button>
+                    Gasolineras
+                    <button class="btn btn-xs pull-right" data-ng-click="stations.ShowNewStationForm()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Agregar</button>
                 </header>
                 <div class="panel-body table-responsive">
                     <table class="table table-hover">
@@ -46,12 +46,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="shop in shops.shopCollection track by $index">
-                                <td>{{shop.name}}</td>
+                            <tr ng-repeat="station in stations.stationCollection track by $index">
+                                <td>{{station.name}}</td>
                                 <td>
-                                    {{shop.address}}
-                                    <iframe class="box" height="100" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{shop.mapUrl}}" style="border: 1px solid black"></iframe><br/>
-                                    <small><a target="_blank" href="{{shop.mapUrl}}">Ver ubicacion</a></small>
+                                    {{station.address}}
+                                    <iframe class="box" height="100" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{station.mapUrl}}" style="border: 1px solid black"></iframe><br/>
+                                    <small><a target="_blank" href="{{station.mapUrl}}">Ver ubicacion</a></small>
                                 </td>
                                 <td>
                                     <i class="fa fa-pencil" aria-hidden="true" title="Editar"></i>
