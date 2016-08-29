@@ -224,6 +224,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angularApp\shops\controllers\shops.js" />
+    <Content Include="angularApp\shops\templates\_shops.html" />
+    <Content Include="angularApp\vouchers\controllers\vouchers.js" />
+    <Content Include="angularApp\vouchers\templates\_vouchers.html" />
     <Content Include="angularApp\units\controllers\units.js" />
     <Content Include="angularApp\units\templates\_units.html" />
     <Content Include="angularApp\dashboard\controllers\dashboard.js" />

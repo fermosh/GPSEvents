@@ -1,0 +1,115 @@
+﻿
+
+<div class="row" style="margin-bottom: 5px;" data-ng-controller="VouchersCtl as vouchers">
+<div class="row">
+    <div class="col-md-9">
+        <section class="panel">
+            <header class="panel-heading">
+                Vales
+            </header>
+            <div class="panel-body table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th># de vale</th>
+                            <th>Fecha de creacion</th>
+                            <th>Estado</th>
+                            <th>Solicitado</th>
+                            <th>Cargado</th>
+                            <th>Factura</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>V0003222</td>
+                            <td>2016/08/24</td>
+                            <td><span class="label label-info">Nuevo</span></td>
+                            <td>120</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>V0003218</td>
+                            <td>2016/08/20</td>
+                            <td><span class="label label-success">Cargado</span></td>
+                            <td>120</td>
+                            <td>120</td>
+                            <td>21351</td>
+                            <td>$1,657.00</td>
+                        </tr>
+                        <tr>
+                            <td>V0002538</td>
+                            <td>2016/08/19</td>
+                            <td><span class="label label-danger">Discrepante</span></td>
+                            <td>120</td>
+                            <td>100</td>
+                            <td>21287</td>
+                            <td>$1,657.00</td>
+                        </tr>
+                        <tr>
+                            <td>V0002438</td>
+                            <td>2016/08/05</td>
+                            <td><span class="label label-success">Cargado</span></td>
+                            <td>130</td>
+                            <td>130</td>
+                            <td>21107</td>
+                            <td>$1,787.70</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-3">
+        <!--chat start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Notificaciones
+            </header>
+            <div class="panel-body" id="noti-box">
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale usado.</strong> Vale V0003231 usado y validado exitosamente <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-block alert-danger">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale discrepante</strong> Vale V0002538 usado con diferencias contra la factura <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-warning">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Tapon abierto</strong> Unidad U-5461 con tapon abierto <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale usado.</strong> Vale V0003229 usado y validado exitosamente <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Vale usado.</strong> Vale V0003218 usado y validado exitosamente <a href="#">ver</a>.
+                </div>
+                <div class="alert alert-warning">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Tapon abierto</strong> Unidad U-5455 con tapon abierto <a href="#">ver</a>.
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</div>
+</div>

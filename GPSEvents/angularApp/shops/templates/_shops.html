@@ -1,0 +1,116 @@
+﻿
+
+<div class="row" style="margin-bottom: 5px;" data-ng-controller="ShopsCtl as shops">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel" data-ng-show="shops.showForm">
+                <header class="panel-heading">
+                    Agregar Taller
+                </header>
+                <div class="panel-body">
+                    <form name="newShopForm" role="form" ng-submit="shops.AddShop()">
+                        <div class="form-group row">
+                            <div>
+                                <label for="newShopName">Nombre:</label>
+                                <input required data-ng-model="shops.newShop.name" class="form-control" id="newShopName" type="text" placeholder="Nombre para el taller">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div>
+                                <label for="newUnitMake">Direccion:</label>
+                                <input required ng-blur="shops.UpdateNewFormMap()" data-ng-model="shops.newShop.address" class="form-control" id="newShopAddress" type="text" placeholder="Direccion del taller">
+                            </div><br/>
+                            <iframe class="box" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{shops.newShop.mapUrl}}" style="border: 1px solid black"></iframe>
+                        </div>
+                        <button class="btn btn-info" ng-disabled="newShopForm.$invalid" type="submit">Guardar</button>
+                        <button class="btn" data-ng-click="shops.CancelNewShop()" type="reset">Cancelar</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <section class="panel">
+                <header class="panel-heading">
+                    Talleres
+                    <button class="btn btn-xs pull-right" data-ng-click="shops.ShowNewShopForm()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Agregar</button>
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Ubicacion</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="shop in shops.shopCollection track by $index">
+                                <td>{{shop.name}}</td>
+                                <td>
+                                    {{shop.address}}
+                                    <iframe class="box" height="100" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{shop.mapUrl}}" style="border: 1px solid black"></iframe><br/>
+                                    <small><a target="_blank" href="{{shop.mapUrl}}">Ver ubicacion</a></small>
+                                </td>
+                                <td>
+                                    <i class="fa fa-pencil" aria-hidden="true" title="Editar"></i>
+                                    <i class="fa fa-trash-o" aria-hidden="true" title="Borrar"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-3">
+            <!--chat start-->
+            <section class="panel">
+                <header class="panel-heading">
+                    Notificaciones
+                </header>
+                <div class="panel-body" id="noti-box">
+                    <div class="alert alert-success">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Vale usado.</strong> Vale V0003231 usado y validado exitosamente <a href="#">ver</a>.
+                    </div>
+                    <div class="alert alert-block alert-danger">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Vale discrepante</strong> Vale V0002538 usado con diferencias contra la factura <a href="#">ver</a>.
+                    </div>
+                    <div class="alert alert-warning">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Tapon abierto</strong> Unidad U-5461 con tapon abierto <a href="#">ver</a>.
+                    </div>
+                    <div class="alert alert-success">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Vale usado.</strong> Vale V0003229 usado y validado exitosamente <a href="#">ver</a>.
+                    </div>
+                    <div class="alert alert-success">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Vale usado.</strong> Vale V0003218 usado y validado exitosamente <a href="#">ver</a>.
+                    </div>
+                    <div class="alert alert-warning">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Tapon abierto</strong> Unidad U-5455 con tapon abierto <a href="#">ver</a>.
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+</div>

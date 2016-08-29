@@ -22,10 +22,15 @@ GPSEventsApp.config(['$routeProvider',
               controller: 'UnitsCtl',
               controllerAs: 'units'
           })
-          .when('/Book/:bookId/ch/:chapterId', {
-              templateUrl: 'chapter.html',
-              controller: 'ChapterCtrl',
-              controllerAs: 'chapter'
+          .when('/Vouchers', {
+              templateUrl: '/angularApp/vouchers/templates/_vouchers.html',
+              controller: 'VouchersCtl',
+              controllerAs: 'vouchers'
+          })
+          .when('/Shops', {
+              templateUrl: '/angularApp/shops/templates/_shops.html',
+              controller: 'ShopsCtl',
+              controllerAs: 'shops'
           }).otherwise({
               redirectTo: '/'
           });
