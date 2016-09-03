@@ -56,6 +56,11 @@ GPSEventsApp.config(['$routeProvider',
               controller: 'UnitsCtl',
               controllerAs: 'units'
           })
+          .when('/Units/:economicNumber', {
+              templateUrl: '/angularApp/units/templates/_unitDetails.html',
+              controller: 'UnitDetailsCtl',
+              controllerAs: 'unitDetails'
+          })
           .when('/Vouchers', {
               templateUrl: '/angularApp/vouchers/templates/_vouchers.html',
               controller: 'VouchersCtl',
